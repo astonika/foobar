@@ -189,6 +189,8 @@
 			<groupId>org.xvolks</groupId>
 			<artifactId>jnative</artifactId>
 			<version>0.0.1.RELEASE</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/JNative.jar</systemPath>
 		</dependency>
 	</dependencies>
 	<!-- <build> -->

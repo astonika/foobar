@@ -19,6 +19,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -30,7 +31,7 @@ import com.company.project.service.FooBarService;
 import com.company.project.util.AntiVC;
 import com.company.project.util.Page;
 
-//@Service("fooBarService")
+@Service
 public class FooBarServiceImpl implements FooBarService {
 
 	private RestTemplate restTemplate = new RestTemplate();
@@ -228,10 +229,10 @@ public class FooBarServiceImpl implements FooBarService {
 
 	// http://60.213.30.214:8805/ajax/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx
 	public void initMethod() {
-		wasteGas = "http://" + host + "/ajax/WasteGas/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";
 		wasteWater = "http://" + host + "/ajax/WasteWater/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";
-		historyWasteGas = "http://" + host + "/ajax/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx";
+		wasteGas = "http://" + host + "/ajax/WasteGas/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";
 		historyWasteWater = "http://" + host + "/ajax/WasteWater/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx";
+		historyWasteGas = "http://" + host + "/ajax/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx";
 		useLink = historyWasteGas;
 		validCodeImg = "http://" + host + "/Ajax/ValidCodeImg.ashx";
 		login = "http://" + host + "/Ajax/Login.ashx";

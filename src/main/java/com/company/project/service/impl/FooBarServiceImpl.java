@@ -6,13 +6,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -36,185 +36,74 @@ public class FooBarServiceImpl implements FooBarService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 	private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	@Value("${foobar.txtUserName}")
 	private String txtUserName;
+	@Value("${foobar.pwd}")
 	private String pwd;
+	@Value("${foobar.sessionID}")
 	private String sessionID;
+	@Value("${foobar.method}")
 	private String method;
+	@Value("${foobar.city}")
 	private String city;
+	@Value("${foobar.levels}")
 	private String levels;
+	@Value("${foobar.codes}")
 	private String codes;
+	@Value("${foobar.multiCode}")
 	private String multiCode;
+	@Value("${foobar.page}")
 	private String page;
+	@Value("${foobar.rows}")
 	private String rows;
+	@Value("${foobar.showUpload}")
 	private String showUpload;
+	@Value("${foobar.showValidate}")
 	private String showValidate;
+	@Value("${foobar.fault}")
 	private String fault;
+	@Value("${foobar.host}")
 	private String host;
+	@Value("${foobar.start}")
 	private String start;
+	@Value("${foobar.end}")
 	private String end;
+	@Value("${foobar.index}")
 	private String index;
+	@Value("${foobar.sort}")
 	private String sort;
+	@Value("${foobar.subid}")
 	private String subid;
+	@Value("${foobar.subname}")
 	private String subname;
+	@Value("${foobar.tmpJpg}")
 	private String tmpJpg;
 
-	public void setRestTemplate(RestTemplate restTemplate) {
-		this.restTemplate = restTemplate;
-	}
-
-	public void setSimpleDateFormat(SimpleDateFormat simpleDateFormat) {
-		this.simpleDateFormat = simpleDateFormat;
-	}
-
-	public void setTxtUserName(String txtUserName) {
-		this.txtUserName = txtUserName;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
-	public void setSessionID(String sessionID) {
-		this.sessionID = sessionID;
-	}
-
-	public void setMethod(String method) {
-		this.method = method;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public void setLevels(String levels) {
-		this.levels = levels;
-	}
-
-	public void setCodes(String codes) {
-		this.codes = codes;
-	}
-
-	public void setMultiCode(String multiCode) {
-		this.multiCode = multiCode;
-	}
-
-	public void setPage(String page) {
-		this.page = page;
-	}
-
-	public void setRows(String rows) {
-		this.rows = rows;
-	}
-
-	public void setShowUpload(String showUpload) {
-		this.showUpload = showUpload;
-	}
-
-	public void setShowValidate(String showValidate) {
-		this.showValidate = showValidate;
-	}
-
-	public void setFault(String fault) {
-		this.fault = fault;
-	}
-
-	public void setHost(String host) {
-		this.host = host;
-	}
-
-	public void setStart(String start) {
-		this.start = start;
-	}
-
-	public void setEnd(String end) {
-		this.end = end;
-	}
-
-	public void setIndex(String index) {
-		this.index = index;
-	}
-
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-
-	public void setSubid(String subid) {
-		this.subid = subid;
-	}
-
-	public void setSubname(String subname) {
-		this.subname = subname;
-	}
-
-	public void setTmpJpg(String tmpJpg) {
-		this.tmpJpg = tmpJpg;
-	}
-
-	public void setUseLink(String useLink) {
-		this.useLink = useLink;
-	}
-
-	public void setWasteGas(String wasteGas) {
-		this.wasteGas = wasteGas;
-	}
-
-	public void setWasteWater(String wasteWater) {
-		this.wasteWater = wasteWater;
-	}
-
-	public void setHistoryWasteGas(String historyWasteGas) {
-		this.historyWasteGas = historyWasteGas;
-	}
-
-	public void setHistoryWasteWater(String historyWasteWater) {
-		this.historyWasteWater = historyWasteWater;
-	}
-
-	public void setValidCodeImg(String validCodeImg) {
-		this.validCodeImg = validCodeImg;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public void setRequestEntity(HttpEntity<MultiValueMap<String, String>> requestEntity) {
-		this.requestEntity = requestEntity;
-	}
-
-	public void setTypeReference(TypeReference<Page<Record>> typeReference) {
-		this.typeReference = typeReference;
-	}
-
-	public void setParameters(MultiValueMap<String, String> parameters) {
-		this.parameters = parameters;
-	}
-
-	@Override
-	public void login() {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		List<Charset> acceptCharset = new ArrayList<Charset>();
-		acceptCharset.add(Charset.forName("UTF-8"));
-		headers.setAcceptCharset(acceptCharset);
-		headers.set("Cookie",
-				"ASP.NET_SessionId=" + sessionID + "; autoLogin=true; user=" + txtUserName + "; pwd=" + pwd);
-		MultiValueMap<String, String> loginParameters = new LinkedMultiValueMap<String, String>();
-		loginParameters.add("txtUserName", txtUserName);
-		loginParameters.add("pwd", pwd);
-
-		String host = "60.213.30.214:8805";
-		String wasteGas = "http://" + host + "/Login.aspx";
-
-		HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<MultiValueMap<String, String>>(
-				loginParameters, headers);
-		ResponseEntity<String> response = restTemplate.exchange(wasteGas, HttpMethod.POST, requestEntity, String.class);
-		// if (response.getStatusCode().equals(HttpStatus.OK)) {
-		// System.out.println(response);
-		// page = JSON.parseObject(response.getBody(), Page.class);
-		// System.out.println(page);
-		// }
-	}
+//	@Override
+//	public void login() {
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+//		List<Charset> acceptCharset = new ArrayList<Charset>();
+//		acceptCharset.add(Charset.forName("UTF-8"));
+//		headers.setAcceptCharset(acceptCharset);
+//		headers.set("Cookie",
+//				"ASP.NET_SessionId=" + sessionID + "; autoLogin=true; user=" + txtUserName + "; pwd=" + pwd);
+//		MultiValueMap<String, String> loginParameters = new LinkedMultiValueMap<String, String>();
+//		loginParameters.add("txtUserName", txtUserName);
+//		loginParameters.add("pwd", pwd);
+//
+//		String host = "60.213.30.214:8805";
+//		String wasteGas = "http://" + host + "/Login.aspx";
+//
+//		HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<MultiValueMap<String, String>>(
+//				loginParameters, headers);
+//		ResponseEntity<String> response = restTemplate.exchange(wasteGas, HttpMethod.POST, requestEntity, String.class);
+//		// if (response.getStatusCode().equals(HttpStatus.OK)) {
+//		// System.out.println(response);
+//		// page = JSON.parseObject(response.getBody(), Page.class);
+//		// System.out.println(page);
+//		// }
+//	}
 
 	private String useLink;
 	private String wasteGas;
@@ -228,6 +117,7 @@ public class FooBarServiceImpl implements FooBarService {
 	private MultiValueMap<String, String> parameters;
 
 	// http://60.213.30.214:8805/ajax/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx
+	@PostConstruct
 	public void initMethod() {
 		wasteWater = "http://" + host + "/ajax/WasteWater/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";
 		wasteGas = "http://" + host + "/ajax/WasteGas/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";

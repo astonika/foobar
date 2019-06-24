@@ -38,6 +38,11 @@
 			<version>1.2.24</version>
 		</dependency>
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.xvolks</groupId>
 			<artifactId>jnative</artifactId>
 			<version>0.0.1.RELEASE</version>
@@ -52,6 +57,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

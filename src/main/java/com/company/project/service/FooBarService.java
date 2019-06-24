@@ -7,6 +7,4 @@ public interface FooBarService {
 
 	Page<Record> xinxingcailiao() throws Exception;
 
-	void login();
-
 }

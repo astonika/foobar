@@ -6,22 +6,22 @@ import org.xvolks.jnative.pointers.memory.MemoryBlockFactory;
 
 public class AntiVC {
 
-	private final static String AntiVCDLL = "D:\\Test\\CheckCodeTest\\AntiVC.dll";
-	private final static String LoadCdsFromFile = "LoadCdsFromFile";
-	private final static String LoadCdsFromBuffer = "LoadCdsFromBuffer";
-	private final static String GetVarPtr = "GetVarPtr";
-	private final static String GetVcodeFromFile = "GetVcodeFromFile";
-	private final static String GetVcodeFromBuffer = "GetVcodeFromBuffer";
-	private final static String GetVcodeFromHWND = "GetVcodeFromHWND ";
-	private final static String GetVcodeFromIECache = "GetVcodeFromIECache";
-	private final static String GetVcodeFromHBitmap = "GetVcodeFromHBitmap";
-	private final static String FreeAllCdsFile = "FreeAllCdsFile";
-	private final static String SetTimeOut = "SetTimeOut";
-//	private final static String SetCdsOption = "SetCdsOption";
-//	private final static String Calculator = "Calculator ";
-//	private final static String UseUnicodeString = "UseUnicodeString";
-	private final static String FilePath = "D:\\Test\\CheckCodeTest\\B901.cds";
-	private final static String Password = "02lv5d5,mb56ah";
+	private static final String AntiVCDLL = "D:\\Test\\CheckCodeTest\\AntiVC.dll";
+	private static final String LoadCdsFromFile = "LoadCdsFromFile";
+	private static final String LoadCdsFromBuffer = "LoadCdsFromBuffer";
+	private static final String GetVarPtr = "GetVarPtr";
+	private static final String GetVcodeFromFile = "GetVcodeFromFile";
+	private static final String GetVcodeFromBuffer = "GetVcodeFromBuffer";
+	private static final String GetVcodeFromHWND = "GetVcodeFromHWND ";
+	private static final String GetVcodeFromIECache = "GetVcodeFromIECache";
+	private static final String GetVcodeFromHBitmap = "GetVcodeFromHBitmap";
+	private static final String FreeAllCdsFile = "FreeAllCdsFile";
+	private static final String SetTimeOut = "SetTimeOut";
+//	private static final String SetCdsOption = "SetCdsOption";
+//	private static final String Calculator = "Calculator ";
+//	private static final String UseUnicodeString = "UseUnicodeString";
+	private static final String FilePath = "D:\\Test\\CheckCodeTest\\B901.cds";
+	private static final String Password = "02lv5d5,mb56ah";
 	private String vcode;
 
 	public String getVcode() {

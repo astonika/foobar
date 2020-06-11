@@ -36,47 +36,47 @@ public class FooBarServiceImpl implements FooBarService {
 
 	private RestTemplate restTemplate = new RestTemplate();
 	private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	@Value("${foobar.txtUserName}")
+	@Value("${txtUserName}")
 	private String txtUserName;
-	@Value("${foobar.pwd}")
+	@Value("${pwd}")
 	private String pwd;
-	@Value("${foobar.sessionID}")
+	@Value("${sessionID}")
 	private String sessionID;
-	@Value("${foobar.method}")
+	@Value("${method}")
 	private String method;
-	@Value("${foobar.city}")
-	private String city;
-	@Value("${foobar.levels}")
-	private String levels;
-	@Value("${foobar.codes}")
+//	@Value("${city}")
+//	private String city;
+//	@Value("${levels}")
+//	private String levels;
+	@Value("${codes}")
 	private String codes;
-	@Value("${foobar.multiCode}")
+	@Value("${multiCode}")
 	private String multiCode;
-	@Value("${foobar.page}")
+	@Value("${page}")
 	private String page;
-	@Value("${foobar.rows}")
+	@Value("${rows}")
 	private String rows;
-	@Value("${foobar.showUpload}")
+	@Value("${showUpload}")
 	private String showUpload;
-	@Value("${foobar.showValidate}")
+	@Value("${showValidate}")
 	private String showValidate;
-	@Value("${foobar.fault}")
-	private String fault;
-	@Value("${foobar.host}")
+//	@Value("${fault}")
+//	private String fault;
+	@Value("${host}")
 	private String host;
-	@Value("${foobar.start}")
+	@Value("${start}")
 	private String start;
-	@Value("${foobar.end}")
+	@Value("${end}")
 	private String end;
-	@Value("${foobar.index}")
+	@Value("${index}")
 	private String index;
-	@Value("${foobar.sort}")
+	@Value("${sort}")
 	private String sort;
-	@Value("${foobar.subid}")
+	@Value("${subid}")
 	private String subid;
-	@Value("${foobar.subname}")
+	@Value("${subname}")
 	private String subname;
-	@Value("${foobar.tmpJpg}")
+	@Value("${tmpJpg}")
 	private String tmpJpg;
 
 //	@Override
@@ -105,11 +105,8 @@ public class FooBarServiceImpl implements FooBarService {
 //		// }
 //	}
 
+	@Value("${useLink}")
 	private String useLink;
-	private String wasteGas;
-	private String wasteWater;
-	private String historyWasteGas;
-	private String historyWasteWater;
 	private String validCodeImg;
 	private String login;
 	private HttpEntity<MultiValueMap<String, String>> requestEntity;
@@ -119,11 +116,6 @@ public class FooBarServiceImpl implements FooBarService {
 	// http://60.213.30.214:8805/ajax/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx
 	@PostConstruct
 	public void initMethod() {
-		wasteWater = "http://" + host + "/ajax/WasteWater/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";
-		wasteGas = "http://" + host + "/ajax/WasteGas/RealTime/RealTimeDataQUIDYN/RealTimeData.ashx";
-		historyWasteWater = "http://" + host + "/ajax/WasteWater/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx";
-		historyWasteGas = "http://" + host + "/ajax/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.ashx";
-		useLink = historyWasteGas;
 		validCodeImg = "http://" + host + "/Ajax/ValidCodeImg.ashx";
 		login = "http://" + host + "/Ajax/Login.ashx";
 		// http://60.213.30.214:8805/Ajax/Login.ashx?Method=G3_Login&loginname=jnhb&password=1&validcode=3&random=0.393999214284122&_=1496302604495
@@ -174,9 +166,9 @@ public class FooBarServiceImpl implements FooBarService {
 	@Override
 	public Page<Record> xinxingcailiao() throws Exception {
 		Calendar calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_YEAR, -1);
-		parameters.set("start", simpleDateFormat.format(calendar.getTime()));
+		calendar.add(Calendar.HOUR_OF_DAY, -6);
 		parameters.set("end", simpleDateFormat.format(new Date()));
+		parameters.set("start", simpleDateFormat.format(calendar.getTime()));
 //		parameters.set("start", "2018-12-14 23:50:00");
 //		parameters.set("end", "2018-12-15 23:50:59");
 //		<{codes=[316,311,494,495,313,466], end=[2018-12-15 23:50:19], index=[0], Method=[QueryHistoryReport], multiCode=[316,311,313,466,494], page=[1], rows=[1], showUpload=[0], showValidate=[0], sort=[0], start=[2018-12-14 23:50:19], subid=[13612]},{Host=[60.213.30.214:8805], User-Agent=[Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0], Accept=[application/json, text/javascript, */*; q=0.01], Accept-Language=[zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2], Accept-Encoding=[gzip, deflate], Content-Type=[application/x-www-form-urlencoded; charset=UTF-8], X-Requested-With=[XMLHttpRequest], Referer=[http://60.213.30.214:8805/WasteGas/QueryAnalysis/HistoryReportQUIDYN/HistoryReport.aspx], Content-Length=[353], Cookie=[ASP.NET_SessionId=stindzmvqhcw1o55bc115t55; autoLogin=true; user=jnhb; pwd=1], Connection=[keep-alive]}>

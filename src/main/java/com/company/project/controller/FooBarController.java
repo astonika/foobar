@@ -1,6 +1,7 @@
 package com.company.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
@@ -16,18 +17,21 @@ public class FooBarController {
 
 	private Page<Record> page = new Page<Record>();
 
+	@Value("${resultPage}")
+	private String resultPage;
+	
 	@Autowired
 	private FooBarService fooBarService;
 
-	@RequestMapping({"/","/index","/foobar"})
+	@RequestMapping({ "/", "/index", "/foobar" })
 	public String index(ModelMap model) {
 		try {
 			model.addAttribute("page", fooBarService.xinxingcailiao());
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("page", page);
-		}
-		return "index4"; // 逻辑视图名viewName --视图解析器--具体的真实视图对象
+		} 
+			return resultPage;
 	}
-	
+
 }

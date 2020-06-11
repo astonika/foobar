@@ -7,7 +7,7 @@ public class Record {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static long serialVersionUID = 1L;
 	private String sn;
 	private String dateTime;
 	private String stcode;
@@ -19,6 +19,7 @@ public class Record {
 	private String rownum;
 
 	// val折算浓度
+	// flow排放量
 
 	// 201二氧化硫
 	// 203氮氧化物
@@ -26,12 +27,13 @@ public class Record {
 	// 209氧气
 	// 210废气排放量
 	// 211流速
+	// 302PH
 	// 525烟气温度
 	// 311氨氮
-	// 313
-	// 316化学需氧量
-	// 466
-	// 494
+	// 313总磷
+	// 316化学需氧量COD
+	// 466总氮
+	// 494小时流量间隔流量
 	// 495累计流量
 
 	private String pid_201;
@@ -40,6 +42,7 @@ public class Record {
 	private String pid_209;
 	private String pid_210;
 	private String pid_211;
+	private String pid_302;
 	private String pid_525;
 	private String pid_311;
 	private String pid_313;
@@ -54,6 +57,7 @@ public class Record {
 	private String val_209;
 	private String val_210;
 	private String val_211;
+	private String val_302;
 	private String val_525;
 	private String val_311;
 	private String val_313;
@@ -68,6 +72,7 @@ public class Record {
 	private String cvt_209;
 	private String cvt_210;
 	private String cvt_211;
+	private String cvt_302;
 	private String cvt_525;
 	private String cvt_311;
 	private String cvt_313;
@@ -82,6 +87,7 @@ public class Record {
 	private String stand_209;
 	private String stand_210;
 	private String stand_211;
+	private String stand_302;
 	private String stand_525;
 	private String stand_311;
 	private String stand_313;
@@ -96,6 +102,7 @@ public class Record {
 	private String cbbs_209;
 	private String cbbs_210;
 	private String cbbs_211;
+	private String cbbs_302;
 	private String cbbs_525;
 	private String cbbs_311;
 	private String cbbs_313;
@@ -110,6 +117,7 @@ public class Record {
 	private String low_209;
 	private String low_210;
 	private String low_211;
+	private String low_302;
 	private String low_525;
 	private String low_311;
 	private String low_313;
@@ -124,6 +132,7 @@ public class Record {
 	private String high_209;
 	private String high_210;
 	private String high_211;
+	private String high_302;
 	private String high_525;
 	private String high_311;
 	private String high_313;
@@ -138,6 +147,7 @@ public class Record {
 	private String state_209;
 	private String state_210;
 	private String state_211;
+	private String state_302;
 	private String state_525;
 	private String state_311;
 	private String state_313;
@@ -152,6 +162,7 @@ public class Record {
 	private String ex_209;
 	private String ex_210;
 	private String ex_211;
+	private String ex_302;
 	private String ex_525;
 	private String ex_311;
 	private String ex_313;
@@ -166,6 +177,7 @@ public class Record {
 	private String val2_209;
 	private String val2_210;
 	private String val2_211;
+	private String val2_302;
 	private String val2_525;
 	private String val2_311;
 	private String val2_313;
@@ -180,6 +192,7 @@ public class Record {
 	private String datatime_209;
 	private String datatime_210;
 	private String datatime_211;
+	private String datatime_302;
 	private String datatime_525;
 	private String datatime_311;
 	private String datatime_313;
